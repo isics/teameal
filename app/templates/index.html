@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tea|\/|eaL</title>
+
+    <style>
+      body {
+        padding: 50px;
+
+        background-color: #112;
+        color: #5c5;
+        font-size: 1.5em;
+        font-family: impact, arial, "sans-serif";
+      }
+
+      h1 {
+        margin-bottom: 50px;
+        text-align: center;
+      }
+
+      a {
+        color: #5c5;
+      }
+
+      thead th {
+        font-size: 1.5em;
+        padding-bottom: 20px;
+      }
+
+      tbody td {
+        padding: 5px;
+        border: 1px solid #5c5;
+      }
+
+      .warning {
+        color: #c55;
+      }
+
+      .warning td {
+        border: 1px solid #c55;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tea|\/|eaL</h1>
+
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th style="text-align: left">TOTAL</th>
+          <th style="text-align: center">{{ nb_meals }}<br><small>repas</small></th>
+          <th style="text-align: right">{{ expenses|floatformat:2 }} €<br><small>dépensés</small></th>
+          <th style="text-align: right">{{ receipts|floatformat:2 }} €<br><small>reçus</small></th>
+          <th {% if balance < 0 %}class="warning" {% endif %}style="text-align: right">{{ balance|floatformat:2 }} €<br><small>en caisse</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+          <tr{% if user.balance < 0 %} class="warning"{% endif %}>
+            <td>{{ user|upper }}</td>
+            <td style="text-align: center">{{ user.nb_meals }} <small>({{ user.part|floatformat:0 }}%)</small></td>
+            <td style="text-align: right">{{ user.debt|floatformat:2 }} €</td>
+            <td style="text-align: right">{{ user.payments|floatformat:2 }} €</td>
+            <td style="text-align: right">{{ user.balance|floatformat:2 }} €</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <p style="margin-top: 50px; text-align: center; font-size: .66em; font-style: italic">powered by <a href="http://www.isics.fr/">Gross Bouff & Co</a></p>
+  </body>
+</html>
