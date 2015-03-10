@@ -8,7 +8,7 @@
 
     <style>
       body {
-        padding: 50px;
+        margin: 50px;
 
         background-color: #112;
         color: #5c5;
@@ -30,6 +30,7 @@
         padding-bottom: 20px;
       }
 
+
       tbody td {
         padding: 5px;
         border: 1px solid #5c5;
@@ -50,7 +51,7 @@
     <table style="width: 100%">
       <thead>
         <tr>
-          <th style="text-align: left">TOTAL</th>
+          <th style="text-align: left">TOTAL<br><small>{{ meal_avg_cost|floatformat:2 }} € / repas</small></th>
           <th style="text-align: center">{{ nb_meals }}<br><small>repas</small></th>
           <th style="text-align: right">{{ expenses|floatformat:2 }} €<br><small>dépensés</small></th>
           <th style="text-align: right">{{ receipts|floatformat:2 }} €<br><small>reçus</small></th>

@@ -21,6 +21,8 @@ def index(request):
         user.debt = user.part / 100 * float(expenses)
         user.balance = float(user.payments) - user.debt
 
+    meal_avg_cost = nb_meals and expenses / nb_meals or 0
+
     return render_to_response(
         'index.html', {
             'users': users,
@@ -28,4 +30,5 @@ def index(request):
             'expenses': expenses,
             'receipts': receipts,
             'balance': balance,
+            'meal_avg_cost': meal_avg_cost
         })
