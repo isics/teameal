@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'd$_&p9x6zn_qmr47^=p*y2v&x1_8#kqjsq4+abuhz*#jc^dx2w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -60,9 +60,10 @@ WSGI_APPLICATION = 'teameal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
-        'NAME': 'teameal',
-        'USER': 'root',
+        'HOST': '',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
     }
 }
 
